@@ -86,7 +86,6 @@ async def login_user(
 async def refresh_user_token(token: str) -> TokenResponseSchema:
     payload = decode_token(token, settings.SECRET_KEY_REFRESH)
     if payload is None:
-        print('ОШИБКА В refresh_user_token ШАГ 1')
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Invalid token',
@@ -95,7 +94,6 @@ async def refresh_user_token(token: str) -> TokenResponseSchema:
 
     id_: str = payload.get('sub')
     if id_ is None:
-        print('ОШИБКА В refresh_user_token ШАГ 2')
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Invalid token',

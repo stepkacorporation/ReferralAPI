@@ -121,7 +121,6 @@ def decode_token(token: str, key: str) -> dict | None:
             headers={'WWW-Authenticate': 'Bearer'}
         )
     except jwt.JWTError as error:
-        print(f'ОШИБКА В decode_token: {error}')
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Invalid token',
