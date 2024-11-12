@@ -10,6 +10,10 @@ from .referral_code import (
     ReferralCodeResponseSchema,
 )
 
+from .auth import (
+    TokenResponseSchema
+)
+
 __all__ = [
     'UserCreateSchema',
     'UserUpdateSchema',
@@ -18,4 +22,6 @@ __all__ = [
     'ReferralCodeCreateSchema',
     'ReferralCodeUpdateSchema',
     'ReferralCodeResponseSchema',
+
+    'TokenResponseSchema',
 ]

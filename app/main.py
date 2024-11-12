@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app import routers
+
 app = FastAPI()
 
 
@@ -10,3 +12,7 @@ async def welcome() -> dict:
         'author': 'Kornev Stepan',
         'GitHub': 'https://github.com/stepkacorporation/ReferralAPI.git'
     }
+
+
+app.include_router(routers.auth.router)
+app.include_router(routers.referral_code.router)

@@ -8,10 +8,11 @@ from app.schemas import ReferralCodeCreateSchema
 async def create_referral_code(
         db: AsyncSession,
         referral_code_create_schema: ReferralCodeCreateSchema,
+        user_id: int,
 ) -> ReferralCode:
     referral_code = ReferralCode(
         code=referral_code_create_schema.code,
-        user_id=referral_code_create_schema.user_id,
+        user_id=user_id,
         expiry_date=referral_code_create_schema.expiry_date,
     )
     db.add(referral_code)
